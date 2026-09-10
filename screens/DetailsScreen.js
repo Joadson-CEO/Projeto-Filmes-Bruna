@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Image, Text, ScrollView, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { getPosterUrl } from '../services/api';
 
 export default function DetailsScreen({ route }) {
   const { movie } = route.params;
-  const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+  const posterUrl = getPosterUrl(movie.poster_path, 'w500');
 
   return (
     <ScrollView style={styles.container}>

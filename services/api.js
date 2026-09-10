@@ -11,6 +11,10 @@ const api = axios.create({
   },
 });
 
+export function getPosterUrl(posterPath, size = 'w300') {
+  return `https://image.tmdb.org/t/p/${size}${posterPath}`;
+}
+
 export async function getPopularMovies() {
   const response = await api.get('/movie/popular');
   return response.data.results;

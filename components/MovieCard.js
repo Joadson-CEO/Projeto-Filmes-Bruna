@@ -1,8 +1,9 @@
 import React from 'react';
 import { TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
+import { getPosterUrl } from '../services/api';
 
 export default function MovieCard({ movie, onPress }) {
-  const posterUrl = `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
+  const posterUrl = getPosterUrl(movie.poster_path, 'w300');
 
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>

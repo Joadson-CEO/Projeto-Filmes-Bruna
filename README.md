@@ -42,3 +42,16 @@ catalogo-de-filmes/
 
 - **HomeScreen**: lista os filmes (pôster + título) buscados na API. Ao tocar em um filme, navega para a DetailsScreen.
 - **DetailsScreen**: exibe as informações completas do filme selecionado (pôster, título, nota, data de lançamento e sinopse), recebidas via parâmetros de navegação.
+
+## MVP (Etapa 2)
+
+- Tela de listagem consumindo `getPopularMovies()` de `services/api.js` e renderizando o componente `MovieCard`.
+- Navegação para a tela de detalhes reaproveitando os dados do filme já recebidos na listagem (sem nova chamada à API).
+- Tratamento de estado de carregamento (spinner) e de erro na requisição, com botão "Tentar novamente".
+- Função `getPosterUrl()` centralizada em `services/api.js`, usada por `MovieCard` e `DetailsScreen`.
+
+### Testes
+
+- Teste automatizado com **Jest** (preset `jest-expo`) em `services/api.test.js`, cobrindo a função `getPosterUrl`.
+- Para rodar: `npm test`.
+- Testes manuais do fluxo listagem → detalhes → voltar documentados em `respostas-mvp.md`.
