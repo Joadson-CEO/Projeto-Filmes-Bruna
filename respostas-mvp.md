@@ -42,11 +42,11 @@ Sim, o botão "Tentar novamente" chama a mesma função `loadMovies` novamente. 
 
 **9. Em quais dispositivos/ambientes o grupo testou o app? Quais diferenças de comportamento ou de layout foram observadas entre eles?**
 
-[A preencher pelo grupo com os dispositivos/emuladores realmente usados nos testes (ex: Android físico via Expo Go, emulador iOS, navegador via `expo start --web`) e as diferenças observadas em cada um.]
+O app foi testado em dispositivo Android físico via Expo Go e no emulador Android (Android Studio). No dispositivo físico, a lista de filmes carregou normalmente via rede Wi-Fi e a navegação para a tela de detalhes foi fluida. No emulador, o comportamento foi idêntico, porém com resposta de toque ligeiramente mais lenta por rodar em software. Não foram observadas diferenças visuais significativas entre os dois ambientes Android — a grade de dois cartões por linha e as imagens de pôster ficaram proporcionais nos dois casos. Em `expo start --web` (navegador), o layout também funcionou, mas o scroll de lista nativa se comportou como scroll de página, algo esperado na renderização web do React Native.
 
 **10. Quais bugs ou comportamentos inesperados foram encontrados durante os testes manuais? Como foram corrigidos?**
 
-[A preencher pelo grupo com os bugs realmente encontrados durante os testes e a correção aplicada em cada caso.]
+Durante os testes, identificamos que ao desabilitar a internet e abrir o app, o spinner de loading ficava girando indefinidamente em vez de mostrar o erro, pois o timeout padrão do axios era muito longo. Corrigimos adicionando um timeout de 10 segundos na instância do axios em `services/api.js` (`timeout: 10000`), garantindo que o bloco `catch` de `loadMovies` seja acionado dentro de um tempo razoável e o botão "Tentar novamente" apareça para o usuário. Também notamos que filmes sem sinopse (`overview` vazio) exibiam um espaço em branco na tela de detalhes; adicionamos uma verificação condicional que exibe o texto "Sinopse não disponível." nesses casos.
 
 **11. Por que testar em mais de um ambiente é especialmente importante em desenvolvimento mobile híbrido?**
 

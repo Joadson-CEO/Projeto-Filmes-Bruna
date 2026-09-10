@@ -18,7 +18,9 @@ export default function DetailsScreen({ route }) {
       </View>
 
       <Text style={styles.info}>Lançamento: {movie.release_date}</Text>
-      <Text style={styles.overview}>{movie.overview}</Text>
+      <Text style={styles.overview}>
+        {movie.overview ? movie.overview : 'Sinopse não disponível.'}
+      </Text>
     </ScrollView>
   );
 }

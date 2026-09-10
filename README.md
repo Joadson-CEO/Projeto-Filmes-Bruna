@@ -4,9 +4,10 @@ Aplicativo mobile que lista filmes e exibe os detalhes de cada um, desenvolvido 
 
 ## Integrantes do grupo
 
-- [Nome do integrante 1]
-- [Nome do integrante 2]
-- [Nome do integrante 3]
+- [Joadson Breno Neves Pereira]
+- [João Pedro Souza Ceo]
+- [Gabriel Borges Luz Guedes]
+- [Igor Sena Hagge]
 
 ## Bibliotecas escolhidas
 
